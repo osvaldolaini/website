@@ -1,0 +1,26 @@
+
+$ol-color:#00B8F6;
+$ol-color-secondary: darken($ol-color, 10%);
+$bg-color:#FFFFFF;
+
+$theme-colors: (
+  "ol-color": $ol-color
+);
+
+@import "bootstrap/bootstrap";
+
+@import "new_style/fonts";
+@import "new_style/generals";
+@import "new_style/header";
+@import "new_style/preloader";
+@import "new_style/banner";
+@import "new_style/about";
+@import "new_style/features";
+@import "new_style/services";
+@import "new_style/portfolio";
+@import "new_style/contact";
+
+@import "new_style/newsletter";
+@import "new_style/footer";
+@import "new_style/copyright";
+

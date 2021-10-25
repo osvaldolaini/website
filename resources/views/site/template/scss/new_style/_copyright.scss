@@ -1,0 +1,32 @@
+/*********************************
+		Copyright
+*********************************/
+
+.copyright p {
+    color: $white;
+}
+
+.copyright span {
+    color: $white;
+    font-size: 12px;
+}
+
+@media (max-width: 991px) {
+    .copyright {
+        text-align: center !important;
+    }
+    .copyright span {
+        font-size: 10px;
+    }
+}
+
+.copyright p a {
+    color: $white;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.copyright {
+    background-color: $black;
+    padding: 20px 0;
+}

@@ -1,0 +1,108 @@
+/*********************************
+		Newsletter
+*********************************/
+.newslatter-section{
+    background: $theme-color-third;
+    color: $white !important;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    h2{
+        font-size: 32px;
+        font-weight: 900;
+        text-align: center;
+        color: $white;
+    }
+    h4{
+        font-size: 24px;
+        text-align: center;
+        font-weight: 800;
+        color: $white;
+    }
+    p{
+        font-weight: 400;
+    }
+}
+.newslatter-section .newslatter-font{
+    color: $white !important;
+}
+.newsletter_form_container {
+    margin-top: 10px;
+}
+
+.newsletter_form {
+    display: block;
+    position: relative;
+}
+
+.newsletter_input {
+    display: block;
+    width: calc(100% - 50px);
+    height: 45px;
+    background: $white;
+    border: none;
+    outline: none;
+    padding-left: 23px;
+    color: $black;
+}
+
+.newsletter_button {
+    width: 50px;
+    height: 45px;
+    background: $theme-color-second;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: $white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.newsletter_input::-webkit-input-placeholder {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: $black !important;
+}
+
+.newsletter_input:-moz-placeholder {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: $black !important;
+}
+
+.newsletter_input::-moz-placeholder {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: $black !important;
+}
+
+.newsletter_input:-ms-input-placeholder {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: $black !important;
+}
+
+.newsletter_input::input-placeholder {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: $black !important;
+}
+
+.newsletter_text {
+    margin-top: 14px;
+    padding-left: 6px;
+}
+
+#newsletter-message-warning, #newsletter-message-success {
+    display: none;
+}
+#newsletter-message-warning {
+    color: #f64b3c;
+}
+#newsletter-message-success {
+    color: $theme-color-third;
+    font-size: 18px;
+    font-weight: bold;
+}

@@ -1,0 +1,55 @@
+   
+@import "style/ribbons";
+    .largeAds{
+        max-width:180vh;
+        height:40vh;
+        margin:auto;
+		background:#eee;
+
+        /*border-radius:10px;*/
+		.ads{
+			text-align:center;
+			margin:auto;
+		}
+		.link{
+			text-align:center;
+			margin:auto;
+		}
+		.image{
+			height:100%;
+			img{
+				height:100%;
+				padding-top:10px;
+				padding-bottom:10px;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+    }
+
+    .smallAds{
+        max-width:180vh;
+        height:40vh;
+        margin:auto;
+        cursor:pointer;
+        /*border-radius:10px;*/
+		.image{
+			height:100%;
+			img{
+				height:100%;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+    }
+
+.close {
+  overflow: hidden;
+  position: absolute;
+  z-index: 11;
+  right: 5px;
+  top: 5px;
+  color:#888;
+}

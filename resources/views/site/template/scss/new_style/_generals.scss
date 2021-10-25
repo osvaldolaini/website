@@ -1,0 +1,226 @@
+$theme-color-firts:#4771cb !important;
+$theme-color-second:#03a4ed !important;
+$theme-color-third:#33ccc5 !important;
+
+/*--------------------------------------------
+        General
+---------------------------------------------*/
+html,
+body {
+  background: $white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+::selection {
+  background: $theme-color-second;
+  color: $white;
+}
+
+::-moz-selection {
+  background: $theme-color-second;
+  color: $white;
+}
+
+@media (max-width: 991px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  .mobile-top-fix {
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+  .mobile-bottom-fix {
+    margin-bottom: 30px;
+  }
+  .mobile-bottom-fix-big {
+    margin-bottom: 60px;
+  }
+}
+
+.page-section {
+  margin-top: 120px;
+}
+
+.section-heading {
+  margin-bottom: 60px;
+}
+
+.section-heading h6 {
+  font-size: 15px;
+  font-weight: 700;
+  color: $theme-color-third;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+
+}
+
+.section-heading h2 {
+  font-size: 30px;
+  text-transform: capitalize;
+  color: #2a2a2a;
+  font-weight: 800;
+  position: relative;
+  z-index: 2;
+  line-height: 45px;
+}
+
+.section-heading h2 em {
+  font-style: normal;
+  color: $theme-color-third;
+}
+
+.section-heading h2 span {
+  color: #088ec3;
+}
+
+.main-blue-button a {
+  display: inline-block;
+  background-color: $theme-color-firts;
+  font-size: 15px;
+  font-weight: 400;
+  color: $white;
+  text-transform: capitalize;
+  padding: 12px 25px;
+  border-radius: 23px;
+  letter-spacing: 0.25px;
+  border-bottom: 2px solid $white !important;
+  transition: all .3s;
+}
+
+.main-blue-button a:hover {
+  background-color: $white !important;
+  color: $theme-color-firts;
+  border-bottom: 2px solid $theme-color-firts;
+}
+
+.main-green-button a {
+  display: inline-block;
+  background-color: $theme-color-third;
+  font-size: 15px;
+  font-weight: 400;
+  color: $white;
+  text-transform: capitalize;
+  padding: 12px 25px;
+  border-radius: 23px;
+  letter-spacing: 0.25px;
+  border-bottom: 2px solid $theme-color-firts;
+  transition: all .3s;
+}
+
+.main-green-button a:hover {
+  background-color: $theme-color-firts;
+  color: $white!important;
+  border-bottom: 2px solid $theme-color-third;
+}
+
+
+/*
+---------------------------------------------
+responsive
+---------------------------------------------
+*/
+
+@media (max-width: 1200px) {
+    .header-area .main-nav .logo h4 {
+      font-size: 24px;
+    }
+    .header-area .main-nav .logo h4 img {
+      max-width: 25px;
+      margin-left: 0px;
+    }
+    .header-area .main-nav .nav li:last-child {
+      padding-left: 20px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .header-area .main-nav .logo h4 {
+      font-size: 20px;
+    }
+    .main-banner .left-content {
+      margin-right: 0px;
+    }
+    .main-banner {
+      text-align: center;
+    }
+    .main-banner:before {
+      display: none;
+    }
+    .main-banner .right-image {
+      margin: 30px auto 0px auto;
+      text-align: center;
+    }
+    .features-item {
+      margin-bottom: 45px;
+    }
+    .last-features-item,
+    .last-skill-item {
+      margin-bottom: 0px !important;
+    }
+    .skill-item {
+      margin-bottom: 30px;
+    }
+    .service-item {
+      text-align: center;
+    }
+    .service-item .icon {
+      margin-top: 0px;
+      margin-bottom: 30px;
+    }
+    .about-us .left-image {
+      margin-right: 30px;
+      margin-left: 30px;
+      margin-bottom: 45px;
+    }
+    .our-portfolio .owl-nav {
+      display: none !important;
+    }
+    .contact-info {
+      margin-top: 60px;
+    }
+    form#contact {
+      padding: 45px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .header-area .main-nav .logo h4 {
+      font-size: 30px;
+    }
+    .header-area .main-nav .logo h4 img {
+      max-width: 30px;
+      margin-left: 5px;
+    }
+    .main-banner .info-stat {
+      margin-bottom: 15px;
+    }
+    .service-item {
+      text-align: center;
+      padding: 30px;
+    }
+    .service-item .icon {
+      float: none;
+      margin-right: 0px;
+      margin-bottom: 15px;
+    }
+    .service-item .right-content {
+      display: inline-block;
+    }
+    .our-portfolio .section-heading,
+    .about-us .section-heading,
+    .about-us .about-item,
+    .about-us p,
+    .about-us .main-green-button {
+      text-align: center;
+    }
+    .our-services .section-heading {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+    .about-us .about-item {
+      margin-top: 15px;
+    }
+    form#contact {
+      padding: 30px;
+    }
+  }

@@ -1,0 +1,124 @@
+/*********************************
+			Articles
+*********************************/
+
+.grid-item {
+    position: relative;
+}
+
+.grid-item:before {
+    content: "";
+    display: inline-block;
+    padding-top: 20rem;
+}
+
+.grid-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.blog {
+    margin-right: -10px !important;
+    margin-left: -10px !important;
+    > .col,
+    > [class*="col-"] {
+        margin-bottom: 20px;
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+
+}
+.blog-post-entry {
+    margin-bottom: 30px;
+    .post-meta {
+        font-family: $font-family-sans-serif-secondary;
+    }
+}
+.blog-item {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    .overlay {
+        position: relative;
+        z-index: 8;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s all ease;
+        &,
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        &:before {
+            background: rgba($black, 0.5);
+            content: "";
+        }
+    }
+    .wrap-icon {
+        position: absolute;
+        right: 20px;
+        color: $white;
+        top: 20px;
+    }
+    .blog-item-content {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        h3,
+        p {
+            color: $white;
+            margin: 0;
+            padding: 0;
+        }
+        h3 {
+            font-size: 18px;
+        }
+        p {
+            font-size: 12px;
+            color: rgba($white, 0.5);
+            font-family: $font-family-sans-serif-secondary;
+        }
+    }
+    &:hover {
+        .overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.blog-item {
+    position: relative;
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+.blog-item {
+    margin-left: 0 !important;
+    .overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+    &:hover {
+        .overlay {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}
+

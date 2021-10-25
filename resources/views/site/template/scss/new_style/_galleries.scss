@@ -1,0 +1,84 @@
+/*********************************
+		All galleries
+*********************************/
+
+.galleries{
+    .galleries-box {
+        margin-bottom: 30px;
+    }
+    .info{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        //color: $white !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 9;
+        a{
+            //color: $white !important;
+        color: $custom-color-primary !important;
+        }
+        h4{
+            //color: $white !important;
+        color: $custom-color-primary !important;
+        }
+    }
+    .galleries-item {
+        display: block;
+        overflow: hidden;
+        position: relative;
+        .overlay {
+            position: relative;
+            z-index: 8;
+            opacity: 1;
+            visibility: visible;
+            transition: 0.3s all ease;
+            &,
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+            &:before {
+                background: rgba($black, 0.5);
+                content: "";
+            }
+        }
+        &:hover {
+            .overlay {
+                opacity: 0;
+                visibility: hidden;
+            }
+            img{
+                transition: 0.3s all ease;
+                transform: scale(1.2);
+            }
+        }
+        .wrap-icon {
+            position: absolute;
+            right: 20px;
+            color: $white !important;
+            top: 20px;
+        }
+        &:before {
+            content: "";
+            display: inline-block;
+            padding-top: 20rem;
+        }
+    }
+    .galleries-item img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: 0.3s all ease;
+    }
+}
