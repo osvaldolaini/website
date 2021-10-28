@@ -86,6 +86,8 @@ var UploadImage = function () {
             request.responseType = 'json';
             // Caminho
             request.open('post', APP_URL + "/uploads");
+            console.log(APP_URL)
+            console.log(CSRF_TOKEN)
             request.setRequestHeader('x-csrf-token', CSRF_TOKEN);
             request.send(data);
         }

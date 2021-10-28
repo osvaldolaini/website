@@ -54,7 +54,7 @@
                         </div>
                         <a href="#">{{ $config->phone }}</a>
                     </li>
-                    <li>
+                    <!--<li>
                         <div class="icon">
                             <i class="fas fa-2x fa-map-marker"></i>
                         </div>
@@ -64,7 +64,7 @@
                             {{$config->addresses->first()->district}},
                             {{$config->addresses->first()->city}} - {{$config->addresses->first()->state}}
                         </a>
-                    </li>
+                    </li>-->
                   </ul>
                 </div>
               </div>

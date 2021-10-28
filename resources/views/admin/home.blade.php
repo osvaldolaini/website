@@ -15,25 +15,9 @@
                 <div class="card-body">
                     <div class="row">
                         <!-- small box -->
-                            <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                                <div class="small-box bg-primary">
-                                    <div class="inner">
-                                        <h4 class="d-lg-none">{{$ambiences}}</h4>
-                                        <h3 class="d-none d-lg-block">{{$ambiences}}</h3>
-                                        <p>Ambientes</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fas fa-home"></i>
-                                    </div>
-                                    <a href="{{route('ambience.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        <!-- ./col -->
-                        <!-- small box -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                                <div class="small-box bg-primary">
+                                <div class="small-box bg-success">
                                     <div class="inner">
                                         <h4 class="d-lg-none">{{$partners}}</h4>
                                         <h3 class="d-none d-lg-block">{{$partners}}</h3>
@@ -49,27 +33,11 @@
                         <!-- small box -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                                <div class="small-box bg-primary">
-                                    <div class="inner">
-                                        <h4 class="d-lg-none">{{$covenants}}</h4>
-                                        <h3 class="d-none d-lg-block">{{$covenants}}</h3>
-                                        <p>Convênios</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fas fa-address-book"></i>
-                                    </div>
-                                    <a href="{{route('covenant.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        <!-- ./col -->
-                        <!-- small box -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                                <div class="small-box bg-primary">
+                                <div class="small-box bg-success">
                                     <div class="inner">
                                         <h4 class="d-lg-none">{{$articles}}</h4>
                                         <h3 class="d-none d-lg-block">{{$articles}}</h3>
-                                        <p>Notícias</p>
+                                        <p>Artigos</p>
                                     </div>
                                     <div class="icon">
                                         <i class="fas fa-newspaper"></i>
@@ -78,42 +46,9 @@
                                 </div>
                             </div>
                         <!-- ./col -->
-                        <!-- small box -->
+                        <!-- small box
                         <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                                <div class="small-box bg-primary">
-                                    <div class="inner">
-                                        <h4 class="d-lg-none">{{$alerts}}</h4>
-                                        <h3 class="d-none d-lg-block">{{$alerts}}</h3>
-                                        <p>Avisos</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </div>
-                                    <a href="{{route('alert.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        <!-- ./col -->
-                        <!-- small box -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                                <div class="small-box bg-primary">
-                                    <div class="inner">
-                                        <h4 class="d-lg-none">{{$events}}</h4>
-                                        <h3 class="d-none d-lg-block">{{$events}}</h3>
-                                        <p>Eventos</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fas fa-glass-cheers"></i>
-                                    </div>
-                                    <a href="{{route('event.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        <!-- ./col -->
-                        <!-- small box -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                                <div class="small-box bg-primary">
+                                <div class="small-box bg-success">
                                     <div class="inner">
                                         <h4 class="d-lg-none">{{$socialMedias}}</h4>
                                         <h3 class="d-none d-lg-block">{{$socialMedias}}</h3>
@@ -125,27 +60,11 @@
                                     <a href="{{route('socialMedia.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
-                        <!-- ./col -->
+                        -->
                         <!-- small box -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                                <div class="small-box bg-primary">
-                                    <div class="inner">
-                                        <h4 class="d-lg-none">{{$sports}}</h4>
-                                        <h3 class="d-none d-lg-block">{{$sports}}</h3>
-                                        <p>Esportes</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fas fa-volleyball-ball"></i>
-                                    </div>
-                                    <a href="{{route('sport.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        <!-- ./col -->
-                        <!-- small box -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                                <div class="small-box bg-primary">
+                                <div class="small-box bg-success">
                                     <div class="inner">
                                         <h4 class="d-lg-none">{{$emails}}</h4>
                                         <h3 class="d-none d-lg-block">{{$emails}}</h3>
@@ -166,41 +85,84 @@
                         <!-- ./col -->
                         <!-- small box -->
                         <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                                <div class="small-box bg-primary">
-                                    <div class="inner">
-                                        <h4 class="d-lg-none">{{$subscribers}}</h4>
-                                        <h3 class="d-none d-lg-block">{{$subscribers}}</h3>
-                                        <p>Assinantes</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="far fa-newspaper"></i>
-                                    </div>
-                                    <a href="{{route('subscriber.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h4 class="d-lg-none">{{$subscribers}}</h4>
+                                    <h3 class="d-none d-lg-block">{{$subscribers}}</h3>
+                                    <p>Assinantes</p>
                                 </div>
+                                <div class="icon">
+                                    <i class="far fa-newspaper"></i>
+                                </div>
+                                <a href="{{route('subscriber.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
+                        </div>
                         <!-- ./col -->
                         <!-- small box -->
                         <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                                <div class="small-box bg-primary">
-                                    <div class="inner">
-                                        <h4 class="d-lg-none">{{$informations}}</h4>
-                                        <h3 class="d-none d-lg-block">{{$informations}}</h3>
-                                        <p>Informações</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fas fa-info-circle"></i>
-                                    </div>
-                                    <a href="{{route('information.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h4 class="d-lg-none">{{$waterproofing}}</h4>
+                                    <h3 class="d-none d-lg-block">{{$waterproofing}}</h3>
+                                    <p>Impermeabilizações</p>
                                 </div>
+                                <div class="icon">
+                                    <i class="fas fa-paint-roller"></i>
+                                </div>
+                                <a href="{{route('waterproofing.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
+                        </div>
+                        <!-- ./col -->
+                        <!-- small box -->
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h4 class="d-lg-none">{{$constructions}}</h4>
+                                    <h3 class="d-none d-lg-block">{{$constructions}}</h3>
+                                    <p>Obras</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <a href="{{route('construction.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <!-- small box -->
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h4 class="d-lg-none">{{$projects}}</h4>
+                                    <h3 class="d-none d-lg-block">{{$projects}}</h3>
+                                    <p>Reformas</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <a href="{{route('projects.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <!-- small box -->
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h4 class="d-lg-none">{{$reforms}}</h4>
+                                    <h3 class="d-none d-lg-block">{{$reforms}}</h3>
+                                    <p>Projetos</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-pencil-ruler"></i>
+                                </div>
+                                <a href="{{route('reforms.index')}}" class="small-box-footer">Listar <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
                         <!-- ./col -->
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="card">
-                                <div class="card-header bg-primary">
+                                <div class="card-header bg-success">
                                     <h3 class="card-title">
                                         <i class="fas fa-chart-bar mr-1"></i>
                                         Visualizações por mês
@@ -221,7 +183,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="card">
-                                <div class="card-header bg-primary">
+                                <div class="card-header bg-success">
                                     <h3 class="card-title">
                                         <i class="fas fa-chart-bar mr-1"></i>
                                         Visualizações por Aparelho
@@ -244,7 +206,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="card">
-                                <div class="card-header bg-primary">
+                                <div class="card-header bg-success">
                                     <h3 class="card-title">
                                         <i class="fas fa-chart-pie mr-1"></i>
                                         Acesso por categorias
@@ -265,7 +227,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="card">
-                                <div class="card-header bg-primary">
+                                <div class="card-header bg-success">
                                     <h3 class="card-title">
                                         <i class="fas fa-star mr-1"></i>
                                         Top 5

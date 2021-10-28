@@ -17,6 +17,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+
         {{-- Navbar collapsible menu --}}
         <div class="collapse navbar-collapse order-3" id="navbarCollapse">
             {{-- Navbar left links --}}

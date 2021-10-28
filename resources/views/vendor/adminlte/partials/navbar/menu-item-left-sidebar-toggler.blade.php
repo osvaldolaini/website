@@ -12,4 +12,11 @@
         <i class="fas fa-bars"></i>
         <span class="sr-only">{{ __('adminlte::adminlte.toggle_navigation') }}</span>
     </a>
+
+</li>
+<li>
+    <!--Alteração feita em 07/07/2021-->
+    <a class="nav-link" href="{{url('')}}" target="_BLANK" data-trigger="hover" data-tooltip="tooltip" data-placement="top" title="Ver">
+        <i class="fas fa-eye"></i>
+    </a>
 </li>

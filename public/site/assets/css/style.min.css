@@ -11399,22 +11399,6 @@ responsive
   padding-right: 20px;
 }
 
-.header-area .main-nav .nav li:last-child {
-  padding-right: 0px;
-  padding-left: 40px;
-}
-
-.header-area .main-nav .nav li:last-child a,
-.background-header .main-nav .nav li:last-child a {
-  padding: 0px 20px;
-  font-weight: 400;
-}
-
-.header-area .main-nav .nav li:last-child a:hover,
-.background-header .main-nav .nav li:last-child a:hover {
-  color: #4771cb !important;
-}
-
 .header-area .main-nav .nav li a {
   display: block;
   font-weight: 500;
@@ -11876,7 +11860,7 @@ responsive
 
 .main-banner:after {
   content: "";
-  background-image: url("http://localhost/site/public/storage/images/site/banner-dec-left.png");
+  background-image: url("http://localhost/website/public/storage/images/site/banner-dec-left.png");
   background-repeat: no-repeat;
   position: absolute;
   left: 0;
@@ -11884,11 +11868,12 @@ responsive
   width: 212px;
   height: 653px;
   z-index: -1;
+  padding-top: 100px;
 }
 
 .main-banner:before {
   content: "";
-  background-image: url("http://localhost/site/public/storage/images/site/banner-dec-right.png");
+  background-image: url("http://localhost/website/public/storage/images/site/banner-dec-right.png");
   background-repeat: no-repeat;
   position: absolute;
   right: 0;
@@ -12023,11 +12008,11 @@ responsive
 }
 
 .first-feature:hover .icon {
-  background-image: url("http://localhost/site/public/storage/images/site/features-icon-white-01.png");
+  background-image: url("http://localhost/website/public/storage/images/site/features-icon-white-01.png");
 }
 
 .second-feature:hover .icon {
-  background-image: url("http://localhost/site/public/storage/images/site/features-icon-white-02.png");
+  background-image: url("http://localhost/website/public/storage/images/site/features-icon-white-02.png");
 }
 
 .features-item .number h6 {
@@ -12046,27 +12031,27 @@ responsive
 }
 
 .features-item .first-number h6 {
-  background-image: url("http://localhost/site/public/storage/images/site/features-number-01.png");
+  background-image: url("http://localhost/website/public/storage/images/site/features-number-01.png");
 }
 
 .features-item .second-number h6 {
-  background-image: url("http://localhost/site/public/storage/images/site/features-number-02.png");
+  background-image: url("http://localhost/website/public/storage/images/site/features-number-02.png");
 }
 
 .features-item .third-number h6 {
-  background-image: url("http://localhost/site/public/storage/images/site/features-number-03.png");
+  background-image: url("http://localhost/website/public/storage/images/site/features-number-03.png");
 }
 
 .features-item .fourth-number h6 {
-  background-image: url("http://localhost/site/public/storage/images/site/features-number-04.png");
+  background-image: url("http://localhost/website/public/storage/images/site/features-number-04.png");
 }
 
 .first-feature .icon {
-  background-image: url("http://localhost/site/public/storage/images/site/features-icon-black-01.png");
+  background-image: url("http://localhost/website/public/storage/images/site/features-icon-black-01.png");
 }
 
 .second-feature .icon {
-  background-image: url("http://localhost/site/public/storage/images/site/features-icon-black-01.png");
+  background-image: url("http://localhost/website/public/storage/images/site/features-icon-black-01.png");
 }
 
 .features-item .icon {
@@ -12584,7 +12569,7 @@ contactForm
 .contact-us {
   margin-top: 90px;
   padding: 120px 0px;
-  background-image: url("http://localhost/site/public/storage/images/site/contact-bg.jpg");
+  background-image: url("http://localhost/website/public/storage/images/site/contact-bg.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -12737,6 +12722,55 @@ form#contactForm button:hover {
   font-size: 18px;
   font-weight: bold;
 }
+
+/*********************************
+        Partners
+*********************************/
+
+.partners {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: #4771cb !important;
+}
+
+.partners .owl-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.partners .owl-item img {
+  width: 80%;
+  opacity: 0.5;
+  transition: 0.3s;
+  filter: grayscale(100);
+}
+
+.partners .owl-item img:hover {
+  filter: none;
+  opacity: 1;
+  width: 82%;
+  padding: 0 10px;
+}
+
+/*.partners .owl-nav, .clients .owl-dots {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.partners .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd !important;
+}
+
+.partners .owl-dot.active {
+  background-color: #ffc451 !important;
+}*/
 
 /*********************************
 		Newsletter

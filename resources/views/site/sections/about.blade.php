@@ -22,7 +22,7 @@
                     <h2>Sempre buscando o <em>melhor</em> para <span>você</span></h2>
                 </div>
                 <p>
-                    {!!$config->description!!}
+                    {!!$config->about!!}
                 </p>
             </div>
         </div>

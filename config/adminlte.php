@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' =>  'ASSGAPA',
+    'title' =>  'Osvaldo Laini',
     'title_prefix' => '',
-    'title_postfix' => '| Associação de Suboficiais e Sargentos da Guarnição de Aeronáutica de Porto Alegre',
+    'title_postfix' => '| Desenvolvedor Web',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,13 +45,12 @@ return [
     |
     */
 
-    'logo' => 'ASSGAPA',
-    'logo_img' => 'vendor/adminlte/dist/img/small_logo.png',
-    //'logo_img' => 'vendor/adminlte/dist/img/assgapaLogo.png',
+    'logo' => 'Desenvolvedor Web',
+    'logo_img' => 'storage/images/logos/logo_vertical.png',
     'logo_img_class' => 'brand-image img-circle ',
-    'logo_img_xl' => 'vendor/adminlte/dist/img/logo_1.png',
+    'logo_img_xl' => 'storage/images/logos/logo-ol.png',
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'ASSGAPA',
+    'logo_img_alt' => 'Osvaldo Laini - Desenvolvedor Web',
 
     /*
     |--------------------------------------------------------------------------
@@ -252,17 +251,16 @@ return [
             'classes'  => 'border-bottom border-secondary mx-2 pt-1 pb-0',
         ],
         /*fim hr personalizado */
-        /*fim hr personalizado */
         [
             'accesslevel' => 10,
             'header' => 'Site'
         ],
         [
             'accesslevel' => 10,
-            'text'  => 'Ambientes',
-            'url'   => 'ambientes',
-            'icon'  => 'fas fa-home',
-            'active'=> ['ambientes', 'ambientes*', 'regex:@^convenambientesios/[0-9]+$@'],
+            'text'  => 'Portifólios',
+            'url'   => 'portifolios',
+            'icon'  => 'fas fa-address-book',
+            'active'=> ['portifolios', 'portifolios*', 'regex:@^portifolios/[0-9]+$@'],
         ],
         [
             'accesslevel' => 10,
@@ -273,13 +271,6 @@ return [
         ],
         [
             'accesslevel' => 10,
-            'text'  => 'Convênios',
-            'url'   => 'convenios',
-            'icon'  => 'fas fa-address-book',
-            'active'=> ['convenios', 'convenios*', 'regex:@^convenios/[0-9]+$@'],
-        ],
-        [
-            'accesslevel' => 10,
             'text'  => 'Notícias',
             'url'   => 'noticias',
             'icon'  => 'fas fa-newspaper',
@@ -287,31 +278,10 @@ return [
         ],
         [
             'accesslevel' => 10,
-            'text'  => 'Avisos',
-            'url'   => 'avisos',
-            'icon'  => 'fas fa-exclamation-triangle',
-            'active'=> ['avisos', 'avisos*', 'regex:@^avisos/[0-9]+$@'],
-        ],
-        [
-            'accesslevel' => 10,
-            'text'  => 'Eventos',
-            'url'   => 'eventos',
-            'icon'  => 'fas fa-glass-cheers',
-            'active'=> ['eventos', 'eventos*', 'regex:@^eventos/[0-9]+$@'],
-        ],
-        [
-            'accesslevel' => 10,
             'text'  => 'Mídias sociais',
             'url'   => 'midias-sociais',
             'icon'  => 'fas fa-hashtag',
             'active'=> ['Mídias sociais', 'Mídias sociais*', 'regex:@^Mídias sociais/[0-9]+$@'],
-        ],
-        [
-            'accesslevel' => 10,
-            'text'  => 'Esportes',
-            'url'   => 'esportes',
-            'icon'  => 'fas fa-volleyball-ball',
-            'active'=> ['esportes', 'esportes*', 'regex:@^esportes/[0-9]+$@'],
         ],
         [
             'accesslevel' => 10,
@@ -326,6 +296,32 @@ return [
             'url'   => 'assinantes',
             'icon'  => 'far fa-newspaper',
             'active'=> ['assinantes', 'assinantes*', 'regex:@^assinantes/[0-9]+$@'],
+        ],
+        /*fim hr personalizado */
+        [
+            'accesslevel' => 100,
+            'header' => 'Marketing'
+        ],
+        [
+            'accesslevel' => 100,
+            'text'  => 'Monetizze',
+            'url'   => 'afiliacoes-monetizze',
+            'icon'  => 'fas fa-ad',
+            'active'=> ['monetizze', 'monetizze*', 'regex:@^monetizze/[0-9]+$@'],
+        ],
+        [
+            'accesslevel' => 100,
+            'text'  => 'Eduzz',
+            'url'   => 'afiliacoes-eduzz',
+            'icon'  => 'fas fa-ad',
+            'active'=> ['eduzz', 'eduzz*', 'regex:@^eduzz/[0-9]+$@'],
+        ],
+        [
+            'accesslevel' => 100,
+            'text'  => 'Hotmart',
+            'url'   => 'afiliacoes-hotmart',
+            'icon'  => 'fas fa-ad',
+            'active'=> ['hotmart', 'hotmart*', 'regex:@^hotmart/[0-9]+$@'],
         ],
 
         /*hr personalizado */
@@ -347,14 +343,6 @@ return [
             'url'   => '/configuracoes',
             'icon'  => 'fas fa-cogs',
             'active'=> ['config','regex:@^config/[0-9]+$@'],
-            'level' => 1,
-        ],
-        [
-            'accesslevel' => 1,
-            'text'  => 'Informações',
-            'url'   => '/informacoes',
-            'icon'  => 'fas fa-info-circle',
-            'active'=> ['informacoes','regex:@^informacoes/[0-9]+$@'],
             'level' => 1,
         ],
         [

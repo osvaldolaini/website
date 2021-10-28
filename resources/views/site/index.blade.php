@@ -3,6 +3,9 @@
     {{-- Banner --}}
     @include('site.sections.banner')
 
+    {{-- Partners --}}
+    @include('site.sections.partners')
+
     {{-- About --}}
     @include('site.sections.about')
 

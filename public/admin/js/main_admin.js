@@ -19,6 +19,78 @@ function dataDB(date){
     return date[2]+'-'+date[1]+'-'+date[0]
 }
 var Main_admin = function () {
+    //Buscar AMBIENTE
+    let ambience = function(){
+            function limpa_formulário_ambience() {
+                // Limpa valores do formulário de cep.
+                    $('[name="capacity"]').val("");
+                    $('[name="district"]').val("");
+                    $('[name="city"]').val("");
+                    $('[name="state"]').val("");
+                    $('[name="number"]').val("");
+            }
+
+            //Quando o campo cep perde o foco.
+            $("[name='postalCode']").blur(function() {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if(validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                            $('[name="address"]').val("...");
+                            $('[name="district"]').val("...");
+                            $('[name="city"]').val("...");
+                            $('[name="state"]').val("...");
+                            $('[name="number"]').val("...");
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $('[name="address"]').val(dados.logradouro)
+                                $('[name="district"]').val(dados.bairro)
+                                $('[name="city"]').val(dados.localidade)
+                                $('[name="state"]').val(dados.uf)
+                                $('[name="number"]').focus()
+
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep();
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Erro!',
+                                    text: 'CEP não encontrado.',
+                                })
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Erro!',
+                            text: 'Formato de CEP inválido.',
+                        })
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            });
+    }
     //Buscar CEP  e completar os dados de endereço
     let cep = function(){
             function limpa_formulário_cep() {
@@ -122,8 +194,10 @@ var Main_admin = function () {
                 $('.cnpj').mask(cnpjmask, spOptions);
          });
       }
+
     return{
       init: function(){
+        //ambience()
         cep()
         masks()
       }

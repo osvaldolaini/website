@@ -11,7 +11,8 @@ class UploadController extends Controller
     {
         $file = $request->file('file');
         $name = uniqid(). '_' . trim($file->getClientOriginalName());
-        if($file->storeAs('public/tmp', $name)){
+
+        if($request->file('file')->move(public_path('storage/tmp'), $name)){
             return response()->json([
                 'name'=> $name,
                 'path' => url('storage/tmp'),

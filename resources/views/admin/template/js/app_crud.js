@@ -370,80 +370,80 @@ var App_crud = function () {
               })
         })
     }
-/*Save */
-let send_response = function(){
+    /*Save */
+    let send_response = function(){
 
-    $("#send").click(function(){
+        $("#send").click(function(){
 
-        let data = $('.save').serialize()
-        let id = $('.save').data("id")
-        var url = APP_URL + '/send-response/' + id
+            let data = $('.save').serialize()
+            let id = $('.save').data("id")
+            var url = APP_URL + '/send-response/' + id
 
-        var required = info('.save')
-        if(required.error == true){
-            Swal.fire({
-                icon: 'error',
-                title: 'Erro!',
-                html: required.msg,
-            })
-        }else{
-            Swal.fire({
-                title: 'Tem certeza que deseja enviar o email?',
-                text: "Não será possível reverter esta ação!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#28a745',
-                cancelButtonColor: '#dc3545',
-                cancelButtonText: `Não`,
-                confirmButtonText: 'Sim'
-            }).then((result) => {
-                if (result.value===true) {
-                    $.ajax({
-                        url:url,
-                        method:'POST',
-                        data:data,
-                        success:function(response){
-                            console.log(response)
-                            if(response.success){
-                                    Swal.fire({
-                                        //position: 'top-end',
-                                        icon: 'success',
-                                        title: 'Sucesso!',
-                                        //timer: 1500,
-                                        text: response.message,
-                                        //showConfirmButton: false,
-                                    })
-                            }else{
+            var required = info('.save')
+            if(required.error == true){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro!',
+                    html: required.msg,
+                })
+            }else{
+                Swal.fire({
+                    title: 'Tem certeza que deseja enviar o email?',
+                    text: "Não será possível reverter esta ação!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#28a745',
+                    cancelButtonColor: '#dc3545',
+                    cancelButtonText: `Não`,
+                    confirmButtonText: 'Sim'
+                }).then((result) => {
+                    if (result.value===true) {
+                        $.ajax({
+                            url:url,
+                            method:'POST',
+                            data:data,
+                            success:function(response){
                                 console.log(response)
+                                if(response.success){
+                                        Swal.fire({
+                                            //position: 'top-end',
+                                            icon: 'success',
+                                            title: 'Sucesso!',
+                                            //timer: 1500,
+                                            text: response.message,
+                                            //showConfirmButton: false,
+                                        })
+                                }else{
+                                    console.log(response)
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Erro!',
+                                        text: response.message,
+                                    })
+                                }
+                            },
+                            error:function(error){
+                                console.log(error)
+                                var retorno_erro_validacao = ''
+                                $.each(error.responseJSON.errors, function (key, value) {
+                                    $('[name='+key+']').addClass('has-error')
+                                    $('[name='+key+']').parent().children().addClass('has-error')
+                                    $('[name='+key+']').parent().append('<label id="'+key+'-error" class="error" for="'+key+'">O valor indicado já existe no banco de dados.</label>')
+                                    var text = $('[name='+key+']').data('name')
+                                    retorno_erro_validacao +='<p class="text-danger"><i class="fas fa-exclamation-triangle"></i> O valor do campo <strong>'+text+ '</strong> já existe no banco de dados.</p>';
+                                });
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Erro!',
-                                    text: response.message,
+                                    html: retorno_erro_validacao,
                                 })
                             }
-                        },
-                        error:function(error){
-                            console.log(error)
-                            var retorno_erro_validacao = ''
-                             $.each(error.responseJSON.errors, function (key, value) {
-                                 $('[name='+key+']').addClass('has-error')
-                                 $('[name='+key+']').parent().children().addClass('has-error')
-                                 $('[name='+key+']').parent().append('<label id="'+key+'-error" class="error" for="'+key+'">O valor indicado já existe no banco de dados.</label>')
-                                 var text = $('[name='+key+']').data('name')
-                                 retorno_erro_validacao +='<p class="text-danger"><i class="fas fa-exclamation-triangle"></i> O valor do campo <strong>'+text+ '</strong> já existe no banco de dados.</p>';
-                             });
-                             Swal.fire({
-                                 icon: 'error',
-                                 title: 'Erro!',
-                                 html: retorno_erro_validacao,
-                             })
-                         }
-                    })
-                }
-            })
-        }
-    })
-}
+                        })
+                    }
+                })
+            }
+        })
+    }
 
     return{
       init: function(){

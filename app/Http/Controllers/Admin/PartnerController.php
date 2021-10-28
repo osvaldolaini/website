@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use Intervention\Image\Facades\Image;
+
 class PartnerController extends Controller
 {
        //navegação
@@ -29,6 +31,7 @@ class PartnerController extends Controller
         *
         * @return \Illuminate\Http\Response
         */
+
        public function index()
        {
            $partners = Partner::all();
@@ -104,6 +107,17 @@ class PartnerController extends Controller
                 $partner->save();
                 /*Move as imagens do arquivo tmp para a pasta do arquivo */
                 Storage::move('public/tmp/' . $request->image, 'public/images/partners/'. $partner->image);
+                // open file a image resource
+                $img = Image::make('storage/images/partners/'. $partner->image);
+                // resize the image to a height of 300 and constrain aspect ratio (auto width)
+                $img->resize(null, 120, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $img->save('storage/images/partners/'. $partner->image, 90);
+                // salvar em webp
+                $webp = Image::make('storage/images/partners/'. $partner->image)->encode('webp', 100);
+                $webp->save('storage/images/partners/'.$partner->id.'_thumbnail.webp', 100);
+
             }else{
                 if(!isset($request->imageRemove)){
                     Storage::delete(['public/images/partners/'.$partner->id.'.jpg', 'public/images/partners/'.$partner->id.'.png','public/images/partners/'.$partner->id.'.jpeg','public/images/partners/'.$partner->id.'.webp']);
@@ -223,6 +237,15 @@ class PartnerController extends Controller
                 $partner->save();
                 /*Move as imagens do arquivo tmp para a pasta do arquivo */
                 Storage::move('public/tmp/' . $request->image, 'public/images/partners/'. $partner->image);
+                    // open file a image resource
+                    $img = Image::make('storage/images/partners/'. $partner->image);
+                    // resize the image to a height of 300 and constrain aspect ratio (auto width)
+                    $img->resize(null, 120, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    $img->save('storage/images/partners/'. $partner->image, 90);
+                    $webp = Image::make('storage/images/partners/'. $partner->image)->encode('webp', 100);
+                    $webp->save('storage/images/partners/'.$partner->id.'_thumbnail.webp', 100);
             }else{
                 if(!isset($request->imageRemove)){
                     Storage::delete(['public/images/partners/'.$partner->id.'.jpg', 'public/images/partners/'.$partner->id.'.png','public/images/partners/'.$partner->id.'.jpeg','public/images/partners/'.$partner->id.'.webp']);

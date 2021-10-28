@@ -39,6 +39,7 @@
             <div class="custom-footer-widget mb-4">
                 <h2 class="custom-heading-2">Contatos</h2>
                 <ul class="list-unstyled">
+                    <!--<li>
                         <a href="#">
                             <i class="fas fa-map-marker"></i>
                             {{ $config->addresses->first()->address}},
@@ -46,7 +47,7 @@
                             {{$config->addresses->first()->district}},
                             {{$config->addresses->first()->city}} - {{$config->addresses->first()->state}}.
                         </a>
-                    </li>
+                    </li>-->
                     <li>
                         <a href="#"><i class="fab fa-whatsapp"></i>
                             {{ $config->phone }}

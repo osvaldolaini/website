@@ -56,6 +56,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'mix_url' => env('MIX_ASSET_URL', null),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -175,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*Intervention Image */
+        Intervention\Image\ImageServiceProvider::class,
+
+        /*Register Laravel Share */
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
     ],
 
     /*
@@ -226,6 +233,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /*Intervention Image */
+        'Image' => Intervention\Image\Facades\Image::class,
+
+        /*Register Laravel Share */
+        'Share' => Jorenvh\Share\ShareFacade::class,
 
     ],
 

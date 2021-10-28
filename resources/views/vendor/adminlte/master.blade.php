@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="app_url" content="{{url('')}}">
     <meta name="grecaptcha-key" content="{{config('recaptcha.v3.public_key')}}">
-
+    <meta name="robots" content="none" />
     {{-- Custom Meta Tags --}}
     @yield('meta_tags')
 
@@ -106,6 +106,35 @@
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
 
+    <script>
+        $('.apiAmbience').ready(function() {
+            const API_ASSGAPA = 'HTTPS://www.assgapa.com';
+            $.ajax({
+                url:API_ASSGAPA + '/api/apiAmbiences',
+                method:'get',
+                success:function(response){
+                    if(response.success){
+                        response.data.forEach(ambience => {
+                            $(".ambienceSite").append(
+                                '<option value="'+ambience.id+'">'+
+                                    ambience.title+
+                                '</option>'
+                            )
+                        });
+                        console.log(response.data)
+                    }
+                },
+                error:function(response){
+                    console.log(response)
+                }
+            })
+
+            $(document).on('change','.ambienceSite', function(){
+                var title = $('.ambienceSite :selected').text()
+                $("#title").val(title)
+            })
+        })
+    </script>
 </body>
 
 </html>

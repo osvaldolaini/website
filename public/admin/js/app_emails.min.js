@@ -1,8 +1,6 @@
 var App_emails = function () {
-
     /*Delete parcel não paga */
     let btn_send = function(){
-
         $(document).on('click','.btn-send', function(){
             var location_id = $(this).data('location')
             Swal.fire({
@@ -46,6 +44,7 @@ var App_emails = function () {
             })
         })
     }
+
 
     return{
       init: function(){

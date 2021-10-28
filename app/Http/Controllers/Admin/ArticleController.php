@@ -11,26 +11,57 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
+use Intervention\Image\Facades\Image;
+
 class ArticleController extends Controller
 {
     //navegação
-    private $navigation = array('title'=>'Notícias','link'=>'article.index');
-    private $new_navigation = array('title'=>'Nova notícia ','link'=>'article.create');
+    private $navigation = array('title'=>'Artigos','link'=>'article.index');
+    private $new_navigation = array('title'=>'Novo artigo ','link'=>'article.create');
     //textos para as mensagens e títulos
     private $configs = array(
-        'new'                   => 'Nova notícia ',
-        'msg-success-save'      => 'Notícia cadastrada com sucesso',
-        'msg-error-save'        => 'Não foi possivel cadastrar a notícia',
-        'msg-success-delete'    => 'Notícia excluida com sucesso',
-        'msg-error-delete'      => 'Não foi possivel excluir a notícia',
-        'msg-not-found'         => 'Notícia não encontrada',
-        'location'              => 'noticias',
+        'new'                   => 'Novo artigo ',
+        'msg-success-save'      => 'Artigo cadastrado com sucesso',
+        'msg-error-save'        => 'Não foi possivel cadastrar o artigo',
+        'msg-success-delete'    => 'Artigo excluido com sucesso',
+        'msg-error-delete'      => 'Não foi possivel excluir o artigo',
+        'msg-not-found'         => 'Artigo não encontrado',
+        'location'              => 'artigos',
     );
+    /*Thumbnail */
+    public function thumbnail($tmp,$path){
+        Storage::delete(['public/tmp/thumbnail.jpg', 'public/tmp/mini_thumbnail.jpg','public/tmp/thumbnail.webp']);
+        /*IMAGE Thumbnail */
+        // open file a image resource
+        $img = Image::make($tmp);
+        // resize the image to a height of 300 and constrain aspect ratio (auto width)
+        $img->resize(null, 300, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        // crop image
+        $img->crop(300, 300, null, null);
+        // save the image jpg format defined by third parameter
+        $img->save($path.'/thumbnail.jpg', 100);
+        // salvar em webp
+        $webp = Image::make($path.'/thumbnail.jpg')->encode('webp', 100);
+        $webp->save($path.'/thumbnail.webp', 100);
+
+        // open file a image resource
+        $mini = Image::make($path.'/thumbnail.jpg');
+        // resize the image to a height of 300 and constrain aspect ratio (auto width)
+        $mini->resize(null, 150, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        // save the image jpg format defined by third parameter
+        $mini->save($path.'/mini_thumbnail.jpg', 100);
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $articles = Article::all();
@@ -49,7 +80,7 @@ class ArticleController extends Controller
         }
 
         return view('admin.articles.listAll',[
-            'title_postfix' => 'Notícias',
+            'title_postfix' => 'Artigos',
             'navigation'    => $this->new_navigation,
             'data'          => $data,
             'accesslevel'   => 10,
@@ -97,6 +128,9 @@ class ArticleController extends Controller
                     $new_name = $article->slug.'-'.$i.'.'.$extension;
                     /*Move as imagens do arquivo tmp para a pasta do arquivo */
                     Storage::move('public/tmp/' . $images[$i], 'public/images/articles/'.$article->id.'/'.$new_name);
+                    /*Thumbnail */
+                    $this->thumbnail('storage/images/articles/'.$article->id.'/'.$new_name,'storage/images/articles/'.$article->id);
+
                     /*Cadastra as imagens no banco de dados */
                     $articleImage = new ArticleImage();
                     $articleImage->title=$new_name;
@@ -222,9 +256,12 @@ class ArticleController extends Controller
                     $extension = $img[1];
                     $new_name = $article->slug.'-'.$i.'.'.$extension;
                     /*Move as imagens do arquivo tmp para a pasta do arquivo */
-                    Storage::move('public/tmp/' . $images[$i], 'public/images/articles/'.$article->id.'/'.$new_name);
-                    /*Cadastra as imagens no banco de dados */
+                    Storage::move('public/tmp/'.$images[$i], 'public/images/articles/'.$article->id.'/'.$new_name);
 
+                    /*Thumbnail */
+                    $this->thumbnail('storage/images/articles/'.$article->id.'/'.$new_name,'storage/images/articles/'.$article->id);
+
+                    /*Cadastra as imagens no banco de dados */
                     $articleImage = new ArticleImage();
                     $articleImage->title=$new_name;
                     $articleImage->featured=$request->featured[$i];

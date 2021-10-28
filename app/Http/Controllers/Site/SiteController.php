@@ -7,18 +7,27 @@ use Illuminate\Http\Request;
 use App\Model\Admin\Config;
 use App\Model\Admin\ConfigAddress;
 
-use App\Model\Admin\Partner;
+use App\Model\Admin\Portfolio;
 
 class SiteController extends Controller
 {
     public function index ()
     {
-        $partners = Partner::where('active',1)->get();
+        $works_1 = Portfolio::select('id','link','slug','image','title')->where('active',1)
+        ->inRandomOrder()
+        ->limit(2)
+        ->get();
+        $works_2 = Portfolio::select('id','link','slug','image','title')->where('active',1)
+        ->inRandomOrder()
+        ->limit(2)
+        ->get();
         $config = Config::get()->first();
+
         return view('site.index',[
             'title_postfix' => '',
             'config' =>  $config,
-            'partners' =>  $partners,
+            'works_1' =>  $works_1,
+            'works_2' =>  $works_2,
         ]);
     }
 }
