@@ -82,22 +82,21 @@ class EmailController extends Controller
     {
         $request->validate([
             'message' => 'required',
-            'from' => 'required',
-            'customer' => 'required',
+            'email' => 'required',
+            'name' => 'required',
         ]);
 
         $create = new Email();
         //Dados principais
-        $create->customer = $request->customer;
+        $create->customer = $request->name;
         $create->message = $request->message;
-        $create->subject = $request->subject;
-        $create->from = $request->from;
-        $create->phone = $request->phone;
+        //$create->subject = $request->subject;
+        $create->from = $request->email;
+        //$create->phone = $request->phone;
         $create->active = 0;
-        $create->created_by = $request->customer;
+        $create->created_by = $request->name;
 
         if($create->save()){
-            return true;
             return response()->json(
                 [
                     'success' => true,
@@ -106,7 +105,7 @@ class EmailController extends Controller
                 ]
             );
         }else{
-            return false;
+
             return response()->json(
                 [
                     'success' => false,

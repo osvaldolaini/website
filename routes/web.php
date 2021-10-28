@@ -21,6 +21,9 @@ Route::group(['namespace' => 'Site'], function () {
 
 Route::get('/ads', 'Marketing\AdsController@ads')->name('ads.ads');
 
+Route::post('/enviar-email', 'Admin\EmailController@store')->name('email.store');
+Route::post('/newsletter', 'Admin\SubscriberController@store')->name('subscriber.store');
+
 Auth::routes();
 /*Rotas Painel*/
 /*Middleware RegisterLogging registra toda navegação do usuário*/

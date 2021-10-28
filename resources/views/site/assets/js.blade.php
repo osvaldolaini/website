@@ -16,8 +16,8 @@
 
 
     <script src="{{asset('js/share.js') }}"></script>
-
-    <script src="{{asset('site/js/contact_me.js')}}"></script>
+    {{--Plugins jquery--}}
+    <script src="{{asset('site/template/vendor/jquery.plugins/jquery.validate.min.js') }}"></script>
 
     <script src="{{asset('site/js/app_views.min.js')}}"></script>
 

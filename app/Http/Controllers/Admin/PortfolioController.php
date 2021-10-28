@@ -105,7 +105,7 @@ class PortfolioController extends Controller
                 $img->resize(null, 120, function ($constraint) {
                     $constraint->aspectRatio();
                 });
-                $img->save('storage/images/portfolios/'. $work->image, 90);
+                $img->save('storage/images/portfolios/'. $work->image, 100);
                 // salvar em webp
                 $webp = Image::make('storage/images/portfolios/'. $work->image)->encode('webp', 100);
                 $webp->save('storage/images/portfolios/'.$work->id.'_thumbnail.webp', 100);
@@ -222,7 +222,7 @@ class PortfolioController extends Controller
                 $img->resize(null, 120, function ($constraint) {
                     $constraint->aspectRatio();
                 });
-                $img->save('storage/images/portfolios/'. $portfolio->image, 90);
+                $img->save('storage/images/portfolios/'. $portfolio->image, 100);
                 $webp = Image::make('storage/images/portfolios/'. $portfolio->image)->encode('webp', 100);
                 $webp->save('storage/images/portfolios/'.$portfolio->id.'_thumbnail.webp', 100);
         }else{

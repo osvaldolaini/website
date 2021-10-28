@@ -49,12 +49,140 @@ var App = function () {
             });
         }
     }
+    var contactForm = function() {
+        $('.form-control').on('input', function() {
+        var $field = $(this).closest('.form-group');
+          if (this.value) {
+              $field.addClass('field-not-empty');
+          } else {
+              $field.removeClass('field-not-empty');
+          }
+        });
 
+        if ($('#contactForm').length > 0 ) {
+            $( "#contactForm" ).validate( {
+                rules: {
+                    name: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    message: {
+                        required: true,
+                        minlength: 5
+                    }
+                },
+                messages: {
+                    name: "Por favor, insira seu nome",
+                    email: "Por favor, insira um email válido",
+                    message: "Por favor, insira sua mensagem"
+                },
+                errorElement: 'span',
+                errorLabelContainer: '.form-error',
+                /* submit via ajax */
+                submitHandler: function(form) {
+                    var $submit = $('.submitting'),
+                        waitText = 'Enviando...';
+
+                    $.ajax({
+                      type: "POST",
+                      url: APP_URL + "/enviar-email",
+                      data: $(form).serialize(),
+
+                      beforeSend: function() {
+                          $submit.css('display', 'block').text(waitText);
+                      },
+                      success: function(msg) {
+                        console.log(msg)
+                       if (msg.success==true) {
+
+                           $('#form-message-warning').hide();
+                            setTimeout(function(){
+                               $('#contactForm').fadeOut();
+                           }, 1000);
+                            setTimeout(function(){
+                               $('#form-message-success').fadeIn();
+                           }, 1400);
+
+                        } else {
+                           $('#form-message-warning').html(message);
+                            $('#form-message-warning').fadeIn();
+                            $submit.css('display', 'none');
+                        }
+                      },
+                      error: function(msg) {
+                          $('#form-message-warning').html("Ocorreu um erro, por favor tente novamente.");
+                         $('#form-message-warning').fadeIn();
+                         $submit.css('display', 'none');
+                      }
+                  });
+                  }
+
+            } );
+        }
+    }
+    var newsletterForm = function() {
+        if ($('#newsletterForm').length > 0 ) {
+            $( "#newsletterForm" ).validate( {
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                },
+                messages: {
+                    email: "Por favor, insira um email válido"
+                },
+                errorElement: 'span',
+                errorLabelContainer: '.form-error',
+                /* submit via ajax */
+                submitHandler: function(form) {
+                    var $submit = $('.submitting'),
+                        waitText = 'Enviando...';
+
+                    $.ajax({
+                      type: "POST",
+                      url: APP_URL + "/newsletter",
+                      data: $(form).serialize(),
+
+                      beforeSend: function() {
+                          $submit.css('display', 'block').text(waitText);
+                      },
+                      success: function(msg) {
+
+                       if (msg.success==true) {
+                           $('#newsletter-message-warning').hide();
+                            setTimeout(function(){
+                               $('#newsletterForm').fadeOut();
+                           }, 1000);
+                            setTimeout(function(){
+                               $('#newsletter-message-success').fadeIn();
+                           }, 1400);
+
+                        } else {
+                           $('#newsletter-message-warning').html(message);
+                            $('#newsletter-message-warning').fadeIn();
+                            $submit.css('display', 'none');
+                        }
+                      },
+                      error: function(msg) {
+                        //console.log(msg)
+                          $('#newsletter-message-warning').html("Email já está cadastrado.");
+                         $('#newsletter-message-warning').fadeIn();
+                         $submit.css('display', 'none');
+                      }
+                  });
+                  }
+            } );
+        }
+    }
 
 
   return{
     init: function(){
-      scrollWindow();
+        scrollWindow()
+        contactForm()
+        newsletterForm()
     }
   }
 }();
