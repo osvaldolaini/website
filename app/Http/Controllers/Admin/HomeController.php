@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Model\Admin\Alert;
 use Illuminate\Http\Request;
 
 use App\Model\Admin\Article;
@@ -33,7 +32,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $alerts         = Alert::where('active', 1)->count();
         $articles       = Article::where('active', 1)->count();
         $emails         = Email::count();
         $partners       = Partner::where('active', 1)->count();
@@ -85,7 +83,6 @@ class HomeController extends Controller
         exit;*/
 
         return view('admin.home',[
-            'alerts'        => $alerts,
             'articles'      => $articles,
             'emails'        => $emails,
             'newEmail'      => $newEmail,
