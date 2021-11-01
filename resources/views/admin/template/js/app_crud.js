@@ -4,9 +4,9 @@ var App_crud = function () {
         const pathname = window.location.pathname
         let path = pathname.split("/")
         //Local
-        return path[3]
+        //return path[3]
         //Rede
-        //return path[1]
+        return path[1]
     }
 
     /*Verifica required */

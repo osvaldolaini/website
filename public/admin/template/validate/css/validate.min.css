@@ -1,8 +1,1 @@
-.form-control.has-error {
-  border-color: #dc3545;
-}
-
-.has-error {
-  color: #dc3545;
-}
-
+.form-control.has-error{border-color:#dc3545}.has-error{color:#dc3545}
